@@ -29,9 +29,9 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Build and push client Docker image
         run: |
-          docker-compose build --build-arg CLIENT_PORT=${CLIENT_PORT} --build-arg SERVER_PORT=${SERVER_PORT} --build-arg POSTGRES_PORT=${POSTGRES_PORT} --build-arg POSTGRES_PASSWORD=${POSTGRES_PASSWORD} --build-arg POSTGRES_USER=${POSTGRES_USER} --build-arg POSTGRES_DB=${POSTGRES_DB} --build-arg GITHUB_SHA=${{ github.sha }} -t ghcr.io/${{ github.repository_owner }}/prakticum-client:${{ github.sha }} prakticum-client
+          docker-compose build --build-arg CLIENT_PORT=${CLIENT_PORT} --build-arg SERVER_PORT=${SERVER_PORT} --build-arg POSTGRES_PORT=${POSTGRES_PORT} --build-arg POSTGRES_PASSWORD=${POSTGRES_PASSWORD} --build-arg POSTGRES_USER=${POSTGRES_USER} --build-arg POSTGRES_DB=${POSTGRES_DB} --build-arg GITHUB_SHA=${{ github.sha }} -t ghcr.io/${{ github.repository_owner }}/prakticum-client:${{ github.sha }}
           docker-compose push ghcr.io/${{ github.repository_owner }}/prakticum-client:${{ github.sha }}
       - name: Build and push server Docker image
         run: |
-          docker-compose build --build-arg CLIENT_PORT=${CLIENT_PORT} --build-arg SERVER_PORT=${SERVER_PORT} --build-arg POSTGRES_PORT=${POSTGRES_PORT} --build-arg POSTGRES_PASSWORD=${POSTGRES_PASSWORD} --build-arg POSTGRES_USER=${POSTGRES_USER} --build-arg POSTGRES_DB=${POSTGRES_DB} --build-arg GITHUB_SHA=${{ github.sha }} -t ghcr.io/${{ github.repository_owner }}/prakticum-server:${{ github.sha }} prakticum-server
+          docker-compose build --build-arg CLIENT_PORT=${CLIENT_PORT} --build-arg SERVER_PORT=${SERVER_PORT} --build-arg POSTGRES_PORT=${POSTGRES_PORT} --build-arg POSTGRES_PASSWORD=${POSTGRES_PASSWORD} --build-arg POSTGRES_USER=${POSTGRES_USER} --build-arg POSTGRES_DB=${POSTGRES_DB} --build-arg GITHUB_SHA=${{ github.sha }} -t ghcr.io/${{ github.repository_owner }}/prakticum-server:${{ github.sha }}
           docker-compose push ghcr.io/${{ github.repository_owner }}/prakticum-server:${{ github.sha }}
