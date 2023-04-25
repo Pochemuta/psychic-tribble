@@ -17,7 +17,7 @@ services:
           - SERVER_PORT=3000
     server:
         container_name: prakticum-server
-        image: prackicum-server
+        image: prakticum-server
         build:
             context: .
             dockerfile: Dockerfile.server
